@@ -2,7 +2,7 @@ Summary:	GSD - the Global Section Datafile (GSD) access library
 Summary(pl):	GSD - biblioteka dostêpu do plików GDS (Global Section Datafile)
 Name:		starlink-gsd
 Version:	1.0.218
-Release:	2
+Release:	3
 License:	non-commercial use and distribution (see GSD_CONDITIONS)
 Group:		Libraries
 Source0:	ftp://ftp.starlink.rl.ac.uk/pub/ussc/store/gsd/gsd.tar.Z
@@ -65,8 +65,8 @@ tar cf ../gsd_source.tar *
 cd ..
 rm -rf tmp
 
-sed -i -e "s/ -O'/ %{rpmcflags} -fPIC'/;s/ ld -shared -soname / %{__cc} -shared \\\$\\\$3 -Wl,-soname=/" mk
-sed -i -e "s/-L\\\$(STAR_LIB)/-L\\\$(STARLINK)\\/share/" makefile
+sed -i -e "s@ -O'@ %{rpmcflags} -fPIC'@;s@ ld -shared -soname @ %{__cc} -shared \\\$\\\$3 -Wl,-soname=@" mk
+sed -i -e "s@-L\\\$(STAR_LIB)@-L\\\$(STARLINK)/share@" makefile
 
 %build
 SYSTEM=ix86_Linux \
