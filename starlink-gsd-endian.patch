@@ -1,0 +1,52 @@
+--- starlink-gsd-1.0.218/gsd2_ix86_Linux.h.orig	1999-12-15 21:29:16.000000000 +0000
++++ starlink-gsd-1.0.218/gsd2_ix86_Linux.h	2004-05-29 16:48:36.000000000 +0000
+@@ -72,12 +72,17 @@
+ #define  IEEEBS    2            /* IEEE floating point format byte swapped */
+ 
+ static const int host_order[GSD_NTYPES] =
++#if defined(__sparc__) || defined(__powerpc__)
+ /* sun4_Solaris.
+- * sun4.
+- { BIGEND, BIGEND, BIGEND, BIGEND, IEEE, IEEE, 0 }; */
++ * sun4. */
++ { BIGEND, BIGEND, BIGEND, BIGEND, IEEE, IEEE, 0 };
++#elif defined(__i386__) || defined(__alpha__) || defined(__x86_64__)
+ /* alpha_OSF1.
+    ix86_Linux */
+    { LITTLEEND, LITTLEEND, LITTLEEND, LITTLEEND, IEEEBS, IEEEBS, 0 };
++#else
++#  error Unknown endianess
++#endif
+ /* vax.
+    { LITTLEEND, LITTLEEND, LITTLEEND, LITTLEEND, VAXF, VAXF, 0 }; */
+ 
+@@ -101,7 +106,8 @@
+  */
+ 
+ /* sun4_Solaris.
+- * sun4.
++ * sun4. */
++#if defined(__sparc__) || defined(__powerpc__)
+ static const union { unsigned char c[1]; char b; }
+    val1__badb = { 0x80 };
+ static const union { unsigned char c[2]; short w; }
+@@ -112,8 +118,7 @@
+    val1__badr = { 0xFF, 0x7F, 0xFF, 0xFF };
+ static const union { unsigned char c[8]; double d; }
+    val1__badd = { 0xFF, 0xEF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF }; 
+-*/
+-
++#elif defined(__i386__) || defined(__alpha__) || defined(__x86_64__)
+ /* alpha_OSF1.
+  * ix86_Linux */
+ static const union { unsigned char c[1]; char b; }
+@@ -126,6 +131,9 @@
+    val1__badr = { 0xFF, 0xFF, 0x7F, 0xFF };
+ static const union { unsigned char c[8]; double d; }
+    val1__badd = { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xEF, 0xFF };
++#else
++#  error Unknown endianess
++#endif
+ 
+ /* vax.
+ static const union { unsigned char c[1]; char b; }
