@@ -5,7 +5,8 @@ Version:	1.0.218
 Release:	1
 License:	non-commercial use and distribution (see GSD_CONDITIONS)
 Group:		Libraries
-Source0:	ftp://ftp.starlink.rl.ac.uk/pub/ussc/store/gsd/gsd.tar.Z
+#Source0:	ftp://ftp.starlink.rl.ac.uk/pub/ussc/store/gsd/gsd.tar.Z
+Source0:	gsd.tar.Z
 # Source0-md5:	7eba2784a35a981c12e9108f836a5cd2
 URL:		http://www.starlink.rl.ac.uk/static_www/soft_further_GSD.html
 BuildRequires:	gcc-g77
