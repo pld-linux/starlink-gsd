@@ -2,11 +2,12 @@ Summary:	GSD - the Global Section Datafile (GSD) access library
 Summary(pl):	GSD - biblioteka dostêpu do plików GDS (Global Section Datafile)
 Name:		starlink-gsd
 Version:	1.0.218
-Release:	1
+Release:	2
 License:	non-commercial use and distribution (see GSD_CONDITIONS)
 Group:		Libraries
 Source0:	ftp://ftp.starlink.rl.ac.uk/pub/ussc/store/gsd/gsd.tar.Z
 # Source0-md5:	7eba2784a35a981c12e9108f836a5cd2
+Patch0:		%{name}-endian.patch
 URL:		http://www.starlink.rl.ac.uk/static_www/soft_further_GSD.html
 BuildRequires:	gcc-g77
 BuildRequires:	sed >= 4.0
@@ -32,7 +33,7 @@ James Clerk Maxwell Telescope.
 Summary:	Header files for GSD library
 Summary(pl):	Pliki nag³ówkowe biblioteki GSD
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	starlink-cnf-devel
 
 %description devel
@@ -45,7 +46,7 @@ Pliki nag³ówkowe biblioteki GSD.
 Summary:	Static Starlink GSD library
 Summary(pl):	Statyczna biblioteka Starlink GSD
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static Starlink GSD library.
@@ -55,6 +56,14 @@ Statyczna biblioteka Starlink GSD.
 
 %prep
 %setup -q -c
+
+mkdir tmp
+cd tmp
+tar xf ../gsd_source.tar
+%patch0 -p1
+tar cf ../gsd_source.tar *
+cd ..
+rm -rf tmp
 
 sed -i -e "s/ -O'/ %{rpmcflags} -fPIC'/;s/ ld -shared -soname / %{__cc} -shared \\\$\\\$3 -Wl,-soname=/" mk
 sed -i -e "s/-L\\\$(STAR_LIB)/-L\\\$(STARLINK)\\/share/" makefile
