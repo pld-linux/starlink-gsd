@@ -1,5 +1,5 @@
 Summary:	GSD - the Global Section Datafile (GSD) access library
-Summary(pl.UTF-8):   GSD - biblioteka dostępu do plików GDS (Global Section Datafile)
+Summary(pl.UTF-8):	GSD - biblioteka dostępu do plików GDS (Global Section Datafile)
 Name:		starlink-gsd
 Version:	1.0.218
 Release:	3
@@ -31,7 +31,7 @@ James Clerk Maxwell Telescope.
 
 %package devel
 Summary:	Header files for GSD library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki GSD
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki GSD
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	starlink-cnf-devel
@@ -44,7 +44,7 @@ Pliki nagłówkowe biblioteki GSD.
 
 %package static
 Summary:	Static Starlink GSD library
-Summary(pl.UTF-8):   Statyczna biblioteka Starlink GSD
+Summary(pl.UTF-8):	Statyczna biblioteka Starlink GSD
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
