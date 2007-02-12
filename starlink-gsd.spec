@@ -1,5 +1,5 @@
 Summary:	GSD - the Global Section Datafile (GSD) access library
-Summary(pl):	GSD - biblioteka dostêpu do plików GDS (Global Section Datafile)
+Summary(pl.UTF-8):   GSD - biblioteka dostÄ™pu do plikÃ³w GDS (Global Section Datafile)
 Name:		starlink-gsd
 Version:	1.0.218
 Release:	3
@@ -23,15 +23,15 @@ This package contains Global Section Datafile (GSD) access library.
 This library provides read-only access to GSD files created at the
 James Clerk Maxwell Telescope.
 
-%description -l pl
-Ten pakiet zawiera bibliotekê dostêpu do plików GSD (Global Section
-Datafile - plików danych sekcji globalnej). Biblioteka umo¿liwia
-dostêp tylko do odczytu do plików GSD tworzonych przez teleskop
+%description -l pl.UTF-8
+Ten pakiet zawiera bibliotekÄ™ dostÄ™pu do plikÃ³w GSD (Global Section
+Datafile - plikÃ³w danych sekcji globalnej). Biblioteka umoÅ¼liwia
+dostÄ™p tylko do odczytu do plikÃ³w GSD tworzonych przez teleskop
 James Clerk Maxwell Telescope.
 
 %package devel
 Summary:	Header files for GSD library
-Summary(pl):	Pliki nag³ówkowe biblioteki GSD
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe biblioteki GSD
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	starlink-cnf-devel
@@ -39,19 +39,19 @@ Requires:	starlink-cnf-devel
 %description devel
 Header files for GSD library.
 
-%description devel -l pl
-Pliki nag³ówkowe biblioteki GSD.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe biblioteki GSD.
 
 %package static
 Summary:	Static Starlink GSD library
-Summary(pl):	Statyczna biblioteka Starlink GSD
+Summary(pl.UTF-8):   Statyczna biblioteka Starlink GSD
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static Starlink GSD library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka Starlink GSD.
 
 %prep
